@@ -1,13 +1,13 @@
 package com.company.service;
 
-import com.company.DeliveryCompany;
-import com.company.Method;
+import com.company.entities.Customer;
+import com.company.entities.DeliveryCompany;
+import com.company.entities.Order;
 
 
 import java.util.List;
-import java.util.Set;
 
-public class DeliveryCompanyService implements Method {
+public class DeliveryCompanyService implements DeliveryCompanySeviceMethod {
     private List<DeliveryCompany> deliveryCompanies;
 
     public DeliveryCompanyService(List<DeliveryCompany> deliveryCompanies) {
@@ -23,8 +23,14 @@ public class DeliveryCompanyService implements Method {
     }
 
     @Override
-    public void acceptOrder() {
+    public int acceptOrder(DeliveryCompany deliveryCompany, Order order) {
+        for (int i = 0; i < deliveryCompanies.size(); i++) {
+            if (deliveryCompanies.get(i).getDeliveryCompanyName().equals(deliveryCompany.getDeliveryCompanyName())){
+                deliveryCompanies.get(i).getCustomer().get(i).getOrder();
+            }
 
+        }
+        return 10;
     }
 
     @Override
@@ -33,16 +39,23 @@ public class DeliveryCompanyService implements Method {
 
     }
 
-    public DeliveryCompanyService() {
+    @Override
+    public int getTotalFee(Customer customer) {
+        for (DeliveryCompany d : deliveryCompanies) {
+            return d.get(customer);
+        }
+        return 0;
     }
 
     @Override
-    public void getTotalFree() {
+    public int getCompanyProfit(DeliveryCompany deliveryCompany, Customer customer) {
+        int companyProfitCounter = 0;
+        for (DeliveryCompany company : deliveryCompanies) {
+            if (company.getDeliveryCompanyName().equals(deliveryCompany.getDeliveryCompanyName())){
+                companyProfitCounter += ((int) company.getPriceKilogram() * company)
+            }
 
-    }
-
-    @Override
-    public void getCompanyProfit() {
-
+        }
+        return companyProfitCounter;
     }
 }

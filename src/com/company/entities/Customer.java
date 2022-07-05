@@ -1,6 +1,6 @@
-package com.company;
+package com.company.entities;
 
-import java.util.List;
+import com.company.entities.Order;
 
 public class Customer {
     private String customerName;

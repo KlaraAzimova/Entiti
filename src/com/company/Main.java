@@ -1,6 +1,9 @@
 package com.company;
 
+import com.company.entities.Customer;
+import com.company.entities.DeliveryCompany;
 import com.company.entities.Load;
+import com.company.entities.Order;
 import com.company.service.DeliveryCompanyService;
 
 import java.util.*;
@@ -35,6 +38,8 @@ public class Main {
         System.out.println("------------------------------------------------------------------------");
         deliveryCompanyService.creatDeliveryCompany(new DeliveryCompany("Yandex",customers));
         deliveryCompaniesList.forEach(System.out::println);
+
+
 
     }
 }
